@@ -303,6 +303,16 @@ def Listar():
     janela = sg.Window('esc', layout)
     evento, dados = janela.read()
     janela.close()
+    comando = 'SELECT Nome,Serie,Turma FROM Alunos, Turmas where id_Alunos = id_Alunos_fk;'
+    cursor.execute(comando)
+    resultado = cursor.fetchall()
+    layout = [
+        [sg.Listbox(values=resultado, size=(30, 6), key='esc')],
+        [sg.Button('OK')]
+    ]
+    janela = sg.Window('esc', layout)
+    evento, dados = janela.read()
+    janela.close()
 
 def Deletar():
     layout = [
