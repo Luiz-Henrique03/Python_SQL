@@ -51,18 +51,20 @@ def CriarBanco(cursor):
 conexao = mysql.connector.connect(
     host = 'localhost',
     user = 'root',
-    password = 'sephirothFF7',
-    database = 'semanadejogos'
+    password = 'sephirothFF7'
 )
 
 cursor = conexao.cursor()
+comando = 'create database semanadejogos;'
+cursor.execute(comando)
+conexao.database = 'semanadejogos'
 
 Esportes = ["Futebol","Volei"]
 Sexo = ["M","F"]
 Series = [3,2,1]
 Turmas = ["A","B","C"]
 
-
+CriarBanco(cursor)
 
 
 def CadastrarAluno(id):
